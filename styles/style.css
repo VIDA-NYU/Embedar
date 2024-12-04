@@ -1,0 +1,463 @@
+    html,
+body,
+.container{
+    height: 100vh;
+    margin: 0;
+    overflow-y:none;
+
+}
+
+body{
+    padding: 0;
+    overflow-y:none;
+    font-family: Open Sans, Arial, sans-serif;
+}
+  
+.container {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    overflow-y:none;
+}
+  
+#overview-panel {
+    display: grid;
+    grid-template-columns: 3.2fr 3.2fr 3.2fr 2.4fr;
+    padding: 0.5% 1.5% 0.2% 0.5%;
+    margin: 0.5% 0.45% 0.2% 0.5%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    outline: thin solid gray;
+}
+
+
+#details-panel{
+    /* display: grid;
+    grid-template-columns:12fr;
+    overflow-y:hidden;
+    padding: 0.5%; */
+    margin: 0.35%;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    padding: none;
+    overflow-y:scroll;
+}
+
+#scatterplot-container {
+    margin-right: 0.75%;
+    text-align: center;
+}
+#scatterplot2-container {
+    margin-right: 0.75%;
+    text-align: center;
+}
+#scatterplot3-container {
+    margin-right: 0.75%;
+    text-align: center;
+}
+
+#tlmatrix-container{
+    margin-right: 0.75%;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    padding: none;
+    overflow-y:scroll;
+
+}
+
+#vid-imu-container{
+    overflow-y:scroll;
+
+    margin-left: 0.75%;
+}
+
+.cell{
+    border: 1px solid #504a4a;
+    border-radius: 8px;
+    padding: 0%;
+}
+
+#scatterplot-container, #scatterplot2-container, #scatterplot3-container, #key-frame-container, #video-container, #event-timeline-container {
+    padding: 0;
+    position: relative; /* Ensure relative positioning */
+}
+
+#video-container{
+    height: 190px;
+    border: none;
+    margin: 0%;
+}
+#video-player {
+    display: block;
+    margin: 2% auto;
+    max-height: 200px; 
+    max-width: 300px;
+    z-index: -100;
+    overflow:hidden;
+}
+
+#video-player video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#source-label{
+    font-size: 0.8em;
+    position: absolute; /* Position dropdown absolutely */
+    left:2%;
+    top:5px;
+}
+
+#source-dropdown {
+    position: absolute; /* Position dropdown absolutely */
+    top: 4px; /* Adjust top position as needed */
+    left: 15%; /* Adjust right position as needed */
+    z-index: 1; /* Ensure dropdown is above other elements */
+}
+
+#show-object-boxes-label {
+    font-size: 0.8em;
+    position: absolute;
+    left: 30%; /* Adjust left position as needed */
+    top: 50px;
+}
+
+#show-object-boxes {
+    position: absolute;
+    left: 43%; /* Adjust left position as needed */
+    top: 48px;
+}
+
+#groupby-label {
+    font-size: 0.8em;
+    position: absolute; /* Position dropdown absolutely */
+    left:47%;
+    top:50px;
+}
+
+#groupby-dropdown{
+    position: absolute; /* Position dropdown absolutely */
+    top: 48px; /* Adjust top position as needed */
+    left: 54%; /* Adjust left position as needed */
+    z-index: 1; /* Ensure dropdown is above other elements */
+}
+
+#filter-label{
+    font-size: 0.8em;
+    position: absolute; /* Position dropdown absolutely */
+    left:73%;   
+    top:5px;
+}
+
+#filter-dropdown{
+    position: absolute; /* Position dropdown absolutely */
+    top: 4px; /* Adjust top position as needed */
+    right: 2%; /* Adjust left position as needed */
+    z-index: 1;
+}
+
+
+#fnirs-label{
+    font-size: 0.8em;
+    position: absolute; /* Position dropdown absolutely */
+    left:0%;
+    top:25px;
+}
+
+#fnirs-dropdown{
+    width: 34%;
+    position: absolute; /* Position dropdown absolutely */
+    top: 35px; /* Adjust top position as needed */
+    right: 8%; /* Adjust left position as needed */
+    z-index: 1;
+}
+
+#corr-checkbox-div{
+    position: absolute;
+    margin: 0%;
+    left: 0px;
+    font-size: 12px;
+    top: 30px;
+}
+
+.lasso path {
+    stroke: black;
+    stroke-width:2px;
+    stroke-opacity: 0.5;
+}
+
+.lasso .drawn {
+    fill:  #737373;
+    fill-opacity:.15 ;
+}
+
+
+.lasso .loop_close {
+   
+    stroke-dasharray: 4,4;
+}
+
+.lasso .origin {
+
+    fill-opacity:0;
+}
+
+.unselectedscatter {
+    opacity: 0.05;
+}
+
+.timelinebrush .selection{
+        fill: black;
+        fill-opacity: 0.6;
+        stroke-width: 5px;
+  }
+ 
+.axisHide path {
+    display: none;
+}
+
+.axisHide line {
+    display: none;
+}
+
+.axisHide{
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.frame-rectangle{
+
+    fill: black;
+    fill-opacity: 0.5;
+    stroke-width: 6px;
+    stroke:black;
+
+}
+
+.hide-workload{
+    opacity: 0.1;
+}
+
+.hide-bar{
+    opacity: 0.1;
+}
+.container-title{
+    margin: none;
+    margin-top: 10px;
+    text-align: center;
+    z-index: 100;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#time-title 
+{
+    margin: none;
+    position: absolute;
+    left: 20%;
+    top:0%;
+    padding: 4px;
+    border-left: 1px solid black;
+    border-right:  1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 8px;
+    z-index: 100;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* .tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 8px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.large-image-container {
+    position: absolute;
+    background: rgb(206, 29, 29);
+    padding: 10px;
+    border: 1px solid black;
+    z-index: 1000;
+} */
+
+.step-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.step-chip {
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.skill-label, .section-title {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.object-chip {
+    cursor: pointer; /* Changes the cursor to a pointer (hand icon) */
+}
+
+
+/* Adjusted the position to accommodate the second button */
+#fab-container {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 100;
+}
+
+.fab-button {
+    background-color: #C8C8C8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    margin-bottom: 10px; /* Add margin to separate buttons */
+}
+
+.fab-menu {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.fab-menu-item {
+    background-color: #f8f9fa;
+    border: 1px solid #d3d3d3;
+    color: #6c757d;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.fab-menu-item:hover {
+    background-color: #d3d3d3;
+    color: #fff;
+}
+
+.fab-menu-item.active {
+    background-color: #C8C8C8;
+    color: white;
+}
+
+.tooltip-window {
+    visibility: hidden;
+    background-color: #797979;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-20%);
+    z-index: 101;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip for Projection Method Button */
+#tooltip-projection {
+    top: 75px; /* Adjust to position above the new button */
+}
+
+.fab-button:hover .tooltip-window {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* floating button for selecting Window Size Tooltip*/
+/* #fab-container {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 100;
+}
+
+.fab-button {
+    background-color: #C8C8C8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+}
+
+.fab-menu {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.fab-menu-item {
+    background-color: #f8f9fa; 
+    border: 1px solid #d3d3d3; 
+    color: #6c757d; 
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.fab-menu-item:hover {
+    background-color: #d3d3d3; 
+    color: #fff;
+}
+
+.fab-menu-item.active {
+    background-color: #C8C8C8; 
+    color: white;
+} */
+
+/* Select Window size Tooltip */
+/* .tooltip-window {
+    visibility: hidden;
+    background-color: #797979;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    top: 35px; 
+    left: 50%;
+    transform: translateX(-20%);
+    z-index: 101;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.fab-button:hover .tooltip-window {
+    visibility: visible;
+    opacity: 1;
+} */
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARModelDebugger</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="#">
+    <!-- Other meta tags and stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div id="fab-container">
+      <!-- Existing Window Size Button -->
+      <button id="fab" class="fab-button">
+        <i class="fas fa-cog"></i>
+      </button>
+      <div id="fab-menu" class="fab-menu">
+        <button class="fab-menu-item" data-source="medoid_frame_window_1s">window_1s</button>
+        <button class="fab-menu-item active" data-source="medoid_frame_window_2s">window_2s</button>
+        <button class="fab-menu-item" data-source="medoid_frame_window_4s">window_4s</button>
+      </div>
+      <div id="tooltip-window" class="tooltip-window">Select Window Size</div>
+  
+      <!-- New Projection Method Button -->
+      <button id="fab-projection" class="fab-button">
+        <i class="fas fa-project-diagram"></i>
+      </button>
+      <div id="fab-menu-projection" class="fab-menu">
+        <button class="fab-menu-item active" data-method="pca">PCA</button>
+        <button class="fab-menu-item" data-method="tsne">tSNE</button>
+        <button class="fab-menu-item" data-method="umap">UMAP</button>
+      </div>
+      <div id="tooltip-projection" class="tooltip-window">Select Projection Method</div>
+  </div>
+  <div class="container">
+
+    <div id="overview-panel">
+      
+      <div id = "scatterplot-container">
+        <strong>Omnivore</strong>
+        <!-- <label id = "source-label" for="source-dropdown">Session:</label>
+        <select id="source-dropdown"></select> -->
+
+      </div>
+      <div id = "scatterplot2-container" >
+        <strong>Slowfast</strong>
+      </div>
+      <div id = "scatterplot3-container">
+        <strong>Avion</strong>
+      </div>
+
+      <div id="similarity-container">
+        <div class="container-title"></div>
+        <svg id="legend-svg" style=" position:absolute; left: 1;top:1; width: 240px; height:200px"> </svg> 
+        <svg id="scatterplot-statistics-svg" style=" position:absolute; left: 1;top:1; width: 260px; height:220px"> </svg> 
+        <!-- <div id="fnirs-agg-container"> 
+          
+          <div class="container-title">Workload Aggregations</div> 
+        </div> -->
+      </div>
+
+
+    </div>
+
+    <div id="details-panel" class="cell">
+      <!-- <div id="tlmatrix-container" class="cell"> -->
+        <div id="key-frame-container" style="text-align: center;">
+          <strong>Key Frames</strong> 
+          <!-- Adding checkbox for Show Object Boxes -->
+          <label id="show-object-boxes-label" for="show-object-boxes">Show Object Boxes</label>
+          <input type="checkbox" id="show-object-boxes" name="showObjectBoxes">
+          <!-- Groupby dropdown -->
+          <label id="groupby-label" for="groupby-dropdown">Groupby:</label>
+          <select id="groupby-dropdown">
+            <option selected value="skill">Skill</option>
+            <option value="session">Session</option>
+            <option value="all">All</option>
+          </select>
+          
+       </div>
+
+        <!-- <div id ="prediction-sessions-container">
+        </div> -->
+        
+        <div id= "event-timeline-container" style="text-align: center;">
+          <strong>Timeline</strong>
+          <div style="padding-left: 10px; margin-bottom:-20px;">
+              <svg id="legend-timeline-svg" style="width: 100%; height: 60px;"></svg>
+          </div>
+          <!-- <svg id="legend-timeline-svg" style=" position:absolute; left: 40;top:1; width: 100%; height:100px"> </svg>  -->
+          <!-- <div id = "video-container" class="cell">  
+            <video id="video-player" controls muted="muted"></video>
+          </div> -->
+          
+        </div>
+      
+      <!-- </div> -->
+    </div>
+  </div>
+
+<script src="dist/app.bundle.js"></script>
+</body>
+</html>

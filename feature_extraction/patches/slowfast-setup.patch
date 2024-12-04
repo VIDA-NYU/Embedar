@@ -1,0 +1,13 @@
+--- setup_BACK.py	2024-07-03 11:46:08.795310143 -0400
++++ setup.py	2024-06-27 20:05:17.769167222 -0400
+@@ -23,8 +23,8 @@
+         "opencv-python",
+         "pandas",
+         "torchvision>=0.4.2",
+-        "PIL",
+-        "sklearn",
++        "pillow",
++        "scikit-learn",
+         "tensorboard",
+         "fairscale",
+     ],

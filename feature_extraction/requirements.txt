@@ -1,0 +1,11 @@
+torch
+torchvision
+cython
+moviepy
+numba
+hydra-core
+einops
+timm
+pillow
+ultralytics
+pytorchvideo @ git+https://github.com/facebookresearch/pytorchvideo.git
